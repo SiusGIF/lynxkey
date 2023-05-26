@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lynx Key</title>
+</head>
+
+<body>
+    <div class="key-claim">
+        <h1>Lynx Hub</h1>
+        <p>The key will be expired after 24 hours</p>
+        <input id="key" type="text" class="key" value="yo bro why are you trying to change the value :/">
+        <input type="submit" id="copys" class="copy-button" value="Copy to clipboard" onclick="Copy()">
+        <input type="submit" id="resets" class="reset-button" value="Reset Key" onclick="resetKey()">
+    </div>
+    <footer>
+        <div class="copyrights">
+            <h1 class="designer-text">Design by<span class="Sius-The-Coolest"> Sius</span></h1>
+        </div>
+    </footer>
+</body>
+
+<script>
+    function makeid(length) {
+        var result = [];
+        var characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        var charactersLength = characters.length;
+        for (var i = 0; i < length; i++) {
+            result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+        }
+        return result.join('');
+    }
+
+    const key = "keyForTheVulnerablePassword";
+    if (localStorage.getItem(key) == null) {
+        let expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() + 1);
+        localStorage.setItem(key, JSON.stringify({ pw: makeid(20), expire: expireDate }));
+    } else {
+        let currentDate = new Date();
+        let storedExpireDate = new Date(JSON.parse(localStorage.getItem(key)).expire);
+        if (storedExpireDate <= currentDate) {
+            while (storedExpireDate <= currentDate) {
+                storedExpireDate.setDate(storedExpireDate.getDate() + 1);
+            }
+            localStorage.setItem(key, JSON.stringify({ pw: makeid(20), expire: storedExpireDate }));
+        }
+    }
+    document.getElementById("key").value = JSON.parse(localStorage.getItem(key)).pw;
+
+    function Copy() {
+        document.getElementById("key").select();
+        document.execCommand("copy");
+        document.getElementById("copys").value = "Copied to clipboard";
+        setTimeout(function () {
+            document.getElementById("copys").value = "Copy to clipboard"
+        }, 500);
+    }
+    function resetKey() {
+        let expireDate = new Date();
+        expireDate.setDate(expireDate.getDate() + 1);
+        localStorage.setItem(key, JSON.stringify({ pw: makeid(20), expire: expireDate }));
+        document.getElementById("key").value = JSON.parse(localStorage.getItem(key)).pw;
+    }
+</script>
+</html>

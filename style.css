@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+}
+
+body{
+    background-image: url(Assets/pexels-joyston-judah-933054.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+.key-claim{
+    text-align: center;
+    justify-content: center;
+    padding: 40vh 0px;
+}
+h1{
+    color: #fefefe;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    padding: 10px 0px;
+    text-align: center;
+}
+p{
+    color: #ffffff44;
+    font-weight: 400;
+    padding: 5px 0px;
+}
+.key{
+    width: 300px;
+    margin-bottom: 10px;
+    color: #fefefe;
+    background: rgba(0, 0, 0, 0.438);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+}
+.copy-button{
+    width: 150px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #fefefe;
+    background: rgba(0, 0, 0, 0.438);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+}
+.copy-button:hover{
+    box-shadow: 0 0 10px rgb(0, 255, 13)
+}
+.reset-button{
+    width: 150px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    color: #fefefe;
+    background: rgba(0, 0, 0, 0.438);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 13px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+}
+.reset-button:hover{
+    box-shadow: 0 0 10px rgb(0, 238, 255)
+}
+.designer-text{
+    font-size: medium;
+}
+.Sius-The-Coolest{
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff256a, #a31b7a, #753a88); 
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text;
+}
+.copyright-texts{
+    font-size: 10px;
+}
